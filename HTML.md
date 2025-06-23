@@ -43,3 +43,30 @@
 - 存在自闭合标签, 如`<img>`和`<input>`
 - 元素可以有多个属性, 属性之间用空格分隔, 如`<a href="https://example.com" target="_blank">链接文本</a>`
 - 属性的值建议用引号包围
+
+### 语义化(Semantic HTML)
+
+语义化是指用 HTML 标签来表达内容的含义和结构, 而不仅仅是外观
+
+#### 语义化示例对比:
+
+```html
+<!-- 非语义化写法 -->
+<div class="header">网站标题</div>
+<div class="nav">导航菜单</div>
+<div class="content">文章内容</div>
+
+<!-- 语义化写法 -->
+<header>网站标题</header>
+<nav>导航菜单</nav>
+<main>
+  <article>文章内容</article>
+</main>
+```
+
+#### 语义化优点
+
+- SEO 优化: 搜索引擎更好理解页面结构
+- 可维护性: 更容易阅读和理解代码
+- 可访问性: 更容易被屏幕阅读器等辅助技术理解
+- 设备兼容: 更容易在不同设备上显示与交互
