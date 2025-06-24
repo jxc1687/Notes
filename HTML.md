@@ -75,7 +75,7 @@
 
 ### `<form>`标签
 
-表单<form>用于收集用户输入的数据, 是网页交互的重要部分
+表单`<form>`用于收集用户输入的数据, 是网页交互的重要部分
 
 #### `<form>`主容器
 
@@ -89,3 +89,122 @@
 
 - `action`: 数据提交的 URL
 - `method`: 数据提交方式, 如`get`或`post`
+
+#### 主要输入控件
+
+```html
+<!-- 文本输入 -->
+<input type="text" name="username" placeholder="请输入用户名" />
+
+<!-- 密码 -->
+<input type="password" name="password" />
+
+<!-- 邮箱 -->
+<input type="email" name="email" />
+
+<!-- 数字 -->
+<input type="number" name="age" min="1" max="100" />
+
+<!-- 单选按钮 -->
+<input type="radio" name="gender" value="male" id="male" />
+<label for="male">男</label>
+<input type="radio" name="gender" value="female" id="female" />
+<label for="female">女</label>
+
+<!-- 复选按钮 -->
+<p>兴趣爱好：</p>
+<input type="checkbox" name="hobbies" value="reading" id="read" />
+<label for="read">阅读</label>
+
+<input type="checkbox" name="hobbies" value="music" id="music" />
+<label for="music">音乐</label>
+
+<input type="checkbox" name="hobbies" value="sports" id="sports" checked />
+<label for="sports">运动</label>
+
+<!-- 多行文本 -->
+<textarea name="message" rows="5" cols="50" placeholder="请输入留言"></textarea>
+
+<!-- 下拉框 -->
+<select name="city" required>
+  <option value="">请选择城市</option>
+  <option value="beijing">北京</option>
+  <option value="shanghai">上海</option>
+  <option value="guangzhou">广州</option>
+</select>
+
+<!-- 文件上传 -->
+<input type="file" accept="image/*" />
+<input type="file" accept=".jpg,.jpeg,.png,.gif" />
+<input type="file" accept="image/jpeg,image/png" />
+
+<!-- 隐藏字段 -->
+<input type="hidden" name="user_id" value="12345" />
+
+<!-- 按钮 -->
+<button type="button">普通操作</button>
+<button type="submit">提交表单</button>
+<button type="reset">重置表单</button>
+```
+
+#### `enctype`属性
+
+1. application/x-www-form-urlencoded(默认)
+2. multipart/form-data(文件上传必需)
+
+```html
+<form method="post" enctype="multipart/form-data">
+  <input type="text" name="title" value="我的照片" />
+  <input type="file" name="photo" />
+  <button type="submit">上传</button>
+</form>
+```
+
+3. text/plain(纯文本, 很少使用)
+
+### `<table>`标签
+
+`<table>`标签用于创建表格, 是网页中展示结构化数据的重要元素
+
+主要标签:
+
+- `<table>`: 表格容器
+- `<tr>`: 表格行(table row)
+- `<th>`: 表头单元格(table header)
+- `<td>`: 数据单元格(table data)
+
+语义化标签:
+
+- `<thead>`: 表格头部
+- `<tbody>`: 表格主体
+- `<tfoot>`: 表格底部
+
+其他标签:
+
+- `<caption>`: 表格标题, 必须放在`<table>`内第一行
+- `<colgroup>`: 对表格列分组, 方便统一设置列的样式, 必须放在`<caption>`之后(如有)
+
+常用属性:
+
+- `colspan`: 合并列
+- `rowspan`: 合并行
+
+```html
+<table>
+  <caption>
+    2024年销售数据统计
+  </caption>
+  <thead>
+    <tr>
+      <th>月份</th>
+      <th>销售额</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1月</td>
+      <td>50000</td>
+    </tr>
+  </tbody>
+</table>
+```
