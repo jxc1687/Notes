@@ -55,6 +55,7 @@
 <div class="header">网站标题</div>
 <div class="nav">导航菜单</div>
 <div class="content">文章内容</div>
+<div class="footer">页脚</div>
 
 <!-- 语义化写法 -->
 <header>网站标题</header>
@@ -62,6 +63,7 @@
 <main>
   <article>文章内容</article>
 </main>
+<footer>页脚</footer>
 ```
 
 #### 语义化优点
@@ -70,3 +72,20 @@
 - 可维护性: 更容易阅读和理解代码
 - 可访问性: 更容易被屏幕阅读器等辅助技术理解
 - 设备兼容: 更容易在不同设备上显示与交互
+
+### `<form>`标签
+
+表单<form>用于收集用户输入的数据, 是网页交互的重要部分
+
+#### `<form>`主容器
+
+```html
+<form action="/submit" method="post">
+  <!-- 表单内容 -->
+</form>
+```
+
+主要属性:
+
+- `action`: 数据提交的 URL
+- `method`: 数据提交方式, 如`get`或`post`
