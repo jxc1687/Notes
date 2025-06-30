@@ -165,3 +165,12 @@ CSS3 引入了`box-sizing`属性, 允许更改计算方式:
   box-sizing: border-box;
 }
 ```
+
+### 层叠(Cascading)的优先级顺序
+
+层叠(Cascading)是指样式(Style)规则如何相互作用和覆盖的机制
+
+1. 重要性声明: `!important`
+2. 来源: 内联(inline) > 内部(internal) > 外部(external)
+3. 权重(Specificity): ID(#id) > 类(.class) > 元素(element)
+4. 源码顺序: 后定义的规则覆盖先定义的
