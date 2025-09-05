@@ -55,3 +55,55 @@ promise
     console.log("获取数据完成!");
   });
 ```
+
+### Async/ Await
+
+Async/ Await 是一种基于 Promise 处理异步操作的**语法糖**, 能以更接近同步代码的方式来编写异步代码
+
+`async` 关键字用于声明一个函数是异步的:
+
+- 这个函数**总是**返回一个 Promise
+- 如果返回值为非 Promise 对象, 会自动包装成一个 resolved 状态的 Promise
+- 如果函数抛出错误, 会自动包装成一个 rejected 状态的 Promise
+
+`await` 关键字用于等待一个 Promise 对象的结果:
+
+- 只能在 `async` 函数中使用
+- 会暂停当前 `async` 函数的执行, 直到 Promise 对象完成
+
+#### 示例
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const success = true;
+    const data = "这是从服务器获取的数据";
+    if (success) {
+      resolve(data);
+    } else {
+      reject(new Error("网络请求失败!"));
+    }
+  }, 5000);
+});
+
+async function getData() {
+  console.log("开始获取数据...");
+
+  try {
+    const result = await promise;
+    console.log("获取数据成功:", result);
+  } catch (error) {
+    console.error("获取数据失败:", error);
+  } finally {
+    console.log("获取数据完成!");
+  }
+}
+
+getData();
+```
+
+#### 优点
+
+- **代码清晰**: `await` 关键字让异步操作的顺序一目了然
+- **线性流程**: 代码从上到下执行, 更符合我们对同步代码的习惯
+- **错误处理**: 使用`try-catch`块来捕获错误, 比`.catch()`更直观
