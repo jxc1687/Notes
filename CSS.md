@@ -174,3 +174,31 @@ CSS3 引入了`box-sizing`属性, 允许更改计算方式:
 2. 来源: 内联(inline) > 内部(internal) > 外部(external)
 3. 权重(Specificity): ID(#id) > 类(.class) > 元素(element)
 4. 源码顺序: 后定义的规则覆盖先定义的
+
+### 继承(inheritance)
+
+CSS 继承是指某些 CSS 属性会自动从父元素传递给子元素的机制
+
+- 会继承的属性主要有: color, font-family, font-size, line-height 等
+- 不会继承的属性主要有: width, height, margin, padding, border 等
+
+所以我们通常使用`*`来全局重置盒模型
+
+```css
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+```
+
+而在`body`中设置字体
+
+```css
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+```
