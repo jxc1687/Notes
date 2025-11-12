@@ -1,3 +1,16 @@
+### 真值和假值(truthy value and falsy value)
+
+Javascript 中有 6 个 falsy 值:
+
+1. `false`
+2. `0`
+3. `""`
+4. `null`
+5. `undefined`
+6. `NaN` - Not a Number
+
+这些值在布尔上下文(如`if`语句)中会被转换为`false`, 其他所有值都是 truthy value.
+
 ### Promise
 
 在 JavaScript 中，Promise 是一个用于处理异步操作的**对象**
