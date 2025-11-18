@@ -11,6 +11,32 @@ Javascript 中有 6 个 falsy 值:
 
 这些值在布尔上下文(如`if`语句)中会被转换为`false`, 其他所有值都是 truthy value.
 
+### Spread Operator
+
+扩展运算符(Spread Operator)是三个点`...`, 用于展开可迭代对象.
+
+主要用途:
+
+1. 展开数组
+
+```javascript
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5]; //[1, 2, 3, 4, 5]
+```
+
+2. 复制数组/对象(shallow copy)
+
+```javascript
+const arr2 = [...arr1];
+const obj2 = [...obj1];
+```
+
+3. 字符串转数组
+
+```javascript
+[..."hello"]; //['h','e','l','l','o']
+```
+
 ### Promise
 
 在 JavaScript 中，Promise 是一个用于处理异步操作的**对象**
