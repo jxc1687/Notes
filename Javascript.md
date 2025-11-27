@@ -1,6 +1,22 @@
+### JavaScript 运行环境(Runtime Enviroment)
+
+JavaScript 运行环境是执行 JavaScript 代码所需的一切，主要包含以下两个核心部分：
+
+1. JavaScript 引擎:
+
+- 是运行环境的核心
+- 例如: Chrome 中的 V8、Firefox 中的 SpiderMonkey
+- 它的主要工作是**解析、编译并执行**JavaScript 代码
+
+2. Web API/系统库：
+
+- 这是引擎之外的部分，提供了与**外部交互**的能力
+- 在**浏览器**中，它提供像`DOM`, `setTimeout`, `fetch`等 API
+- 在**Node.js**中，它提供像`fs`、`http`等 API
+
 ### 真值和假值(truthy value and falsy value)
 
-Javascript 中有 6 个 falsy 值:
+JavaScript 中有 6 个 falsy 值:
 
 1. `false`
 2. `0`
@@ -11,7 +27,7 @@ Javascript 中有 6 个 falsy 值:
 
 这些值在布尔上下文(如`if`语句)中会被转换为`false`, 其他所有值都是 truthy value.
 
-### Spread Operator
+### 扩展运算符(Spread Operator)
 
 扩展运算符(Spread Operator)是三个点`...`, 用于展开可迭代对象.
 
