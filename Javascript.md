@@ -1,18 +1,58 @@
 ### JavaScript 运行环境(Runtime Enviroment)
 
-JavaScript 运行环境是执行 JavaScript 代码所需的一切，主要包含以下两个核心部分：
+JavaScript 运行环境是执行 JavaScript 代码所需的一切，主要包含以下核心部分：
 
 1. JavaScript 引擎:
 
-- 是运行环境的核心
+- 是运行环境的核心，包含 Call Stack(执行栈)和 Heap
 - 例如: Chrome 中的 V8、Firefox 中的 SpiderMonkey
-- 它的主要工作是**解析、编译并执行**JavaScript 代码
+- 它的主要工作是解析、编译并执行 JavaScript 代码
 
-2. Web API/系统库：
+2. Web API/Node.js API：
 
-- 这是引擎之外的部分，提供了与**外部交互**的能力
+- 提供了 Javascript 与外部交互及异步操作的能力
 - 在**浏览器**中，它提供像`DOM`, `setTimeout`, `fetch`等 API
 - 在**Node.js**中，它提供像`fs`、`http`等 API
+
+3. 任务队列(Task Queues)
+
+- 微任务队列(Microtask Queue): 存放优先级**高**的异步任务，如`Promise.then/catch/finally`,`queueMicrotask`等
+- 宏任务队列(Macrotask Queue): 存放优先级**低**的异步任务，如`setTimeout`,`setInterval`, I/O 操作, 事件监听等
+
+4. 事件循环(Event Loop)
+
+- 监控执行栈和任务队列
+- 确保同步代码先执行，异步代码在主线程空闲时，按微任务优先的顺序执行，从而实现非阻塞的并发
+
+#### 工作流程
+
+1. 同步代码执行: 当代码开始执行时，所有同步任务都会被推入执行栈并立即执行
+2. 异步任务委托: 当遇到像`setTimeout`或`Promise`这样的异步操作时，它们会被交给 Web APIs 进行处理
+3. 回调函数入队: 当 Web APIs 处理完后，其对应的回调函数不会立即执行，而是放入相应的任务队列
+4. 循环检查与执行:
+
+- Event Loop 会不断检查执行栈是否为空
+- 当执行栈为空时，Event Loop 会清空微任务队列，并将其推入栈执行
+- 当微任务清空后，Event Loop 会从宏任务队列取出第一个任务，并将其推入栈执行
+- 执行完一个宏任务后，Event Loop 会不断循环上述步骤，直至程序结束
+
+```javascript
+console.log("1");
+
+setTimeout(() => {
+  console.log("2");
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log("3");
+});
+
+console.log("4");
+
+//输出结果：1, 4, 3, 2
+```
+
+![JS运行环境](images/JS%20Runtime%20Environment.png)
 
 ### 真值和假值(truthy value and falsy value)
 
